@@ -1,2 +1,9 @@
 # SpecStory explanation file
 /.what-is-this.md
+
+# BAML generated clients and build artifacts
+**/baml_client/
+**/target/
+**/__pycache__/
+**/*.pyc
+**/.pytest_cache/
