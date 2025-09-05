@@ -1,5 +1,6 @@
 use baml_client::models::ExtractResumeRequest;
 use baml_client::apis::default_api as b;
+use baml_client::models::GetResponseRequest;
 
 #[tokio::main]
 async fn main() {
@@ -10,6 +11,16 @@ async fn main() {
     );
     
     let resp = b::extract_resume(&config, request).await.unwrap();
+
+    println!("{:#?}", resp);
+
+
+    let request = GetResponseRequest::new(
+        "You are an unhelpful assistant. Give the worst response possible.".to_string(),
+        "What is the capital of France?".to_string()
+    );
+
+    let resp = b::get_response(&config, request).await.unwrap();
 
     println!("{:#?}", resp);
 }
